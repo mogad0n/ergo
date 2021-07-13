@@ -799,6 +799,7 @@ func formatBanForListing(client *Client, key string, info IPBanInfo) string {
 	if info.Duration != 0 {
 		desc = fmt.Sprintf("%s [%s]", desc, info.TimeLeft())
 	}
+	desc = fmt.Sprintf("%s added at %s", desc, info.TimeCreated.UTC().Format(time.UnixDate))
 	banType := "Ban"
 	if info.RequireSASL {
 		banType = "SASL required"
